@@ -1,7 +1,13 @@
 $(function(){
-  $("#formOne").submit(function(event){
-    $(".person1").append("input#person1").val()
-    $(".person2").append("input#person2").val()
+  $("#blanks form").submit(function(event){
+    var blanks = ["person1", "person2", "animal", "exclamation", "verb", "noun"];
+
+    blanks.forEach(function(blank) {
+      var userInput = $("input#" + blank).val();
+      console.log(userInput);
+      $("." + blank).text(userInput).val();
+      return blank;
+    });
 
     $("#story").show()
 
